@@ -8,6 +8,7 @@ import {
   Select,
   MenuItem,
   SelectChangeEvent,
+  TextField,
 } from '@mui/material';
 
 import { DateTime } from 'luxon';
@@ -45,7 +46,7 @@ export function MainForm() {
     '27',
   ];
   const dataMeetingRoom = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  const [data, setData] = useState({ floor: '', number: '' });
+  const [data, setData] = useState({ tower: '', floor: '', meetingRoom:'' });
 
   const [startTime, setStartTime] = useState<DateTime | null>(null);
   const [endTime, setEndTime] = useState<DateTime | null>(null);
@@ -72,9 +73,13 @@ export function MainForm() {
   return (
     <Box
       sx={{
-        bgcolor: 'yellow',
-        width: '50%',
+        bgcolor: 'white',
+        boxShadow:'0 25px 50px -12px rgb(0 0 0 / 0.25)',
         display: 'flex',
+        width:'50%',
+        marginLeft:"auto",
+        marginRight:'auto',
+        borderRadius:"30px",
         flexDirection: 'column',
         alignItems: 'center',
         padding: '25px',
@@ -82,8 +87,34 @@ export function MainForm() {
     >
       <Typography variant="h3">Бронирование переговорной</Typography>
       <FormControl sx={{ m: 1, minWidth: 260 }}>
+        <InputLabel>Башня</InputLabel>
+        <Select
+          name="tower"
+          value={data.tower}
+          label="Башня"
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {dataFloor.map((tower) => (
+            <MenuItem key={tower} value={tower}>
+              {tower}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+      <FormControl sx={{ m: 1, minWidth: 260 }}>
         <InputLabel>Этаж</InputLabel>
         <Select
+          MenuProps={{
+            PaperProps: {
+              style: {
+                maxHeight: 200,
+              },
+            },
+          }}
           name="floor"
           value={data.floor}
           label="Этаж"
@@ -92,9 +123,9 @@ export function MainForm() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {dataFloor.map((flor) => (
-            <MenuItem key={flor} value={flor}>
-              {flor}
+          {dataNumberFlor.map((number) => (
+            <MenuItem key={number} value={number}>
+              {number}
             </MenuItem>
           ))}
         </Select>
@@ -110,21 +141,22 @@ export function MainForm() {
               },
             },
           }}
-          name="number"
-          value={data.number}
-          label="Номер"
+          name="meetingRoom"
+          value={data.meetingRoom}
+          label="Комната"
           onChange={handleChange}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {dataNumberFlor.map((number) => (
-            <MenuItem key={number} value={number}>
-              {number}
+          {dataMeetingRoom.map((meetingRoom) => (
+            <MenuItem key={meetingRoom} value={meetingRoom}>
+              {meetingRoom}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
+
       <FormControl sx={{ m: 1, minWidth: 200 }}>
         <LocalizationProvider dateAdapter={AdapterLuxon}>
           <TimePicker
@@ -146,6 +178,11 @@ export function MainForm() {
             }
           />
         </LocalizationProvider>
+      </FormControl>
+
+      <FormControl sx={{ m: 1, minWidth: 260 }}>
+        <InputLabel>Комментарий</InputLabel>
+        <TextField/>
       </FormControl>
     </Box>
   );
