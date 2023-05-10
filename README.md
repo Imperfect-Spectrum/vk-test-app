@@ -3,9 +3,11 @@ A simple form for booking a meeting room, which allows us to choose a tower, flo
 
 Check out [live](https://vk-test-app.vercel.app/)
 
-![1](https://github.com/Imperfect-Spectrum/vk-test-app/assets/55977481/ccfd9c5c-a6c9-4824-86a9-213a6e719097)
-![2](https://github.com/Imperfect-Spectrum/vk-test-app/assets/55977481/85970397-2946-4511-af21-e46cf018a53c)
-![3](https://github.com/Imperfect-Spectrum/vk-test-app/assets/55977481/b557b777-5477-4143-98d0-c018b46ef875)
+![3](https://github.com/Imperfect-Spectrum/vk-test-app/assets/55977481/6f217728-3cf1-4dcf-9c90-3c0011872b6f)
+![1](https://github.com/Imperfect-Spectrum/vk-test-app/assets/55977481/6ae17f33-6166-4ace-b00c-d7dd5b2df392)
+![2](https://github.com/Imperfect-Spectrum/vk-test-app/assets/55977481/979b7bb0-8f64-48f6-81e0-2e4b5da383b1)
+
+
 
 ## Application Description
 The application was created using React, TS, Material-Ui.
